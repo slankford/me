@@ -1,0 +1,101 @@
+//out: ../css/main.css, sourcemap: true, compress: true
+
+
+// General variables
+@headerColor: #FFF000;
+@paragraphColor: #000;
+@footerFontColor: #bbb;
+@finePrintSize: 10px;
+@separatorColor: #ddd;
+
+
+@panelBackground: #FFF;
+@panelBorderColor: #000;
+
+@navBackground: #1463f0;
+@navLinkColor: #FFF;
+@navLinkHovorBackground: #7dbaf9;
+@navLinkActiveBackground: #00baf9;
+
+@welcomeBannerBackground: #000;
+@welcomeBannerFontColor: #FFF;
+
+
+
+
+
+h1 {
+  color: @headerColor;
+  font-family: Tahoma, sans-serif;
+}
+p {
+  color: @paragraphColor;
+  font-family: Tahoma, sans-serif;
+}
+
+.container {
+  min-width: 250px;
+}
+
+.panel {
+  border: 2px solid @panelBorderColor;
+  background: @panelBackground;
+  margin: 10px;
+}
+
+.rounded-panel {
+  .panel;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+
+#top-banner {
+  font-size: 32px;
+  background: @welcomeBannerBackground;
+  color: @welcomeBannerFontColor;
+  text-align: right;
+  padding-right: 25px;
+
+  /*only on small screen devices*/
+  @media screen {
+    @media (max-width: 768px) {
+      font-size: 26px;
+    }
+  }
+
+}
+
+#top-nav {
+  margin-top:6px;
+  margin-bottom:20px;
+  text-align: center;
+
+  a:link, a:visited {
+    color: @navLinkColor;
+    background: @navBackground;
+    padding: 8px 18px 8px 18px;
+
+  }
+
+  a:hover {
+    background: @navLinkHovorBackground !important;
+  }
+
+  a:link.active, a:visited.active {
+    background: @navLinkActiveBackground;
+  }
+
+}
+
+#footer {
+  border-top: solid @separatorColor 1px;
+  padding-top: 10px;
+
+  p {
+    color: @footerFontColor;
+    font-size: @finePrintSize;
+  }
+
+
+}
