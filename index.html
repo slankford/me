@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <title>slankford</title>
+  </head>
+  <body ng-controller="MainController as ctrl">
+
+    <!-- Site banner -->
+    <div id="top-banner" class="container-fluid">{{ ctrl.bossMan.name }}</div>
+    <!-- Site container -->
+    <div class="container">
+      <!-- Navigation row -->
+      <ul class="row">
+        <li id="top-nav" class="nav nav-pills pull-right">
+          <a class="tabs"
+          ng-repeat="view in ctrl.views"
+          ui-sref="{{ view.name }}" ui-sref-active="selectedTab">
+            {{ view.name }}
+          </a>
+        </li>
+      </ul>
+      <!-- Content -->
+      <ui-view></ui-view>
+      <!-- Footer row -->
+      <div id="footer">
+        <p>&copy; {{ ctrl.bossMan.name }} 2017</p>
+      </div>
+    </div>
+
+
+    <!-- Libs -->
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+    <!-- Module -->
+    <script src="src/app.module.js"></script>
+    <script src="src/constants.js"></script>
+    <!-- Controller -->
+    <script src="src/controller.js"></script>
+    <!-- Routing -->
+    <script src="src/routes.js"></script>
+  </body>
+</html>

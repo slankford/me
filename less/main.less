@@ -8,19 +8,23 @@
 @finePrintSize: 10px;
 @separatorColor: #ddd;
 
-
+// General panel
 @panelBackground: #FFF;
 @panelBorderColor: #000;
 
+// Navigation links
 @navBackground: #1463f0;
 @navLinkColor: #FFF;
 @navLinkHovorBackground: #7dbaf9;
-@navLinkActiveBackground: #00baf9;
+@navLinkActiveBackground: #adbaf9;
+@navLinkSelectedBackground: #00baf9;
 
-@welcomeBannerBackground: #000;
-@welcomeBannerFontColor: #FFF;
+// Top banner
+@topBannerBackground: #000;
+@topBannerFontColor: #FFF;
 
-
+// Screen sizes
+@screen-sm: 768px; // Tablet
 
 
 
@@ -29,12 +33,18 @@ h1 {
   font-family: Tahoma, sans-serif;
 }
 p {
-  color: @paragraphColor;
-  font-family: Tahoma, sans-serif;
+  // color: @paragraphColor;
+  font-family: Calibri, sans-serif;
+  @media screen {
+    @media (max-width: @screen-sm) {
+        font-size: 22px;
+    }
+  }
 }
 
 .container {
-  min-width: 250px;
+  min-width: 300px;
+  max-width: 800px;
 }
 
 .panel {
@@ -49,18 +59,24 @@ p {
   padding: 10px;
 }
 
+.profile-img {
+  width: 200px;
+  height: auto;
+  margin: 10px;
+}
+
 
 #top-banner {
   font-size: 32px;
-  background: @welcomeBannerBackground;
-  color: @welcomeBannerFontColor;
+  background: @topBannerBackground;
+  color: @topBannerFontColor;
   text-align: right;
   padding-right: 25px;
 
   /*only on small screen devices*/
   @media screen {
-    @media (max-width: 768px) {
-      font-size: 26px;
+    @media (max-width: @screen-sm) {
+      font-size: 32px;
     }
   }
 
@@ -75,17 +91,20 @@ p {
     color: @navLinkColor;
     background: @navBackground;
     padding: 8px 18px 8px 18px;
+    text-decoration: none;
 
+    &.selectedTab {
+      background: @navLinkSelectedBackground;
+    }
   }
 
-  a:hover {
-    background: @navLinkHovorBackground !important;
+  a:hover, a:hover.selectedTab {
+    background: @navLinkHovorBackground;
   }
 
-  a:link.active, a:visited.active {
+  a:active, a:active.selectedTab {
     background: @navLinkActiveBackground;
   }
-
 }
 
 #footer {
